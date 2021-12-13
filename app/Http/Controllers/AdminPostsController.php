@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use http\Env\Request;
 
 
 class AdminPostsController extends Controller
@@ -29,6 +30,13 @@ class AdminPostsController extends Controller
     public function store(Request $request)
     {
         Post::create($request->all());
+        return redirect()->route('admin.posts.index');
+    }
+
+    public function update(Request $request,$id)
+    {
+        $post=Post::find($id);
+        $post->update($request->all());
         return redirect()->route('admin.posts.index');
     }
 
