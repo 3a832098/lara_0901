@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
-Route::get('posts/{id}', [PostsController::class, 'show'])->name('posts.show');
+
+Route::get('posts/{id}',[PostsController::class,'show'])->name('posts.show');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.dashboard.index');
