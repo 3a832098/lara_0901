@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 
+
 class AdminPostsController extends Controller
 {
     public function index()
@@ -22,5 +23,12 @@ class AdminPostsController extends Controller
         $data = ['id' => $id];
 
         return view('admin.posts.edit', $data);
+    }
+
+    //新增(加入)一篇文章
+    public function store(Request $request)
+    {
+        Post::create($request->all());
+        return redirect()->route('admin.posts.index');
     }
 }
