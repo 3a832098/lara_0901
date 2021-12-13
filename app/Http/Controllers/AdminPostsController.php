@@ -21,7 +21,7 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         $data = ['id' => $id];
-
+        $post = Post::find($id);
         return view('admin.posts.edit', $data);
     }
 
@@ -31,4 +31,5 @@ class AdminPostsController extends Controller
         Post::create($request->all());
         return redirect()->route('admin.posts.index');
     }
+
 }
