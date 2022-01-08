@@ -30,7 +30,8 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <form action="{{route('admin.posts.store')}}" method="POST" role="form">
+        <form action="/admin/posts" method="POST" role="form">
+            @method('POST')
             @csrf
             <div class="form-group">
                 <label for="title">標題：</label>
@@ -44,7 +45,7 @@
 
             <div class="form-group">
                 <label for="is_feature">精選？</label>
-                <select id="is_feature" class="form-control">
+                <select id="is_feature" name="is_feature" class="form-control" >
                     <option value="0">否</option>
                     <option value="1">是</option>
                 </select>
@@ -54,9 +55,9 @@
                 <button type="submit" class="btn btn-success">新增</button>
             </div>
 
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+            <p> </p>
+            <p> </p>
+            <p> </p>
 
         </form>
     </div>
